@@ -34,8 +34,8 @@ export function InfinitePeople() {
         {data.pages.map((pageData) => {
           return pageData.results.map((person) => (
             <Person
-              eyeColor={person.eyeColor}
-              hairColor={person.hairColor}
+              eyeColor={person.eye_color}
+              hairColor={person.hair_color}
               key={person.name}
               name={person.name}
             />

@@ -16,5 +16,18 @@ export function InfinitePeople() {
     { getNextPageParam: (lastPage) => lastPage.next || undefined }
   );
 
-  return <InfiniteScroll />;
+  return (
+    <InfiniteScroll loadMore={fetchNextPage} hasMore={hasNextPage}>
+      {data.pages.map((pageData) => {
+        return pageData.results.map((person) => (
+          <Person
+            eyeColor={person.eyeColor}
+            hairColor={person.hairColor}
+            key={person.name}
+            name={person.name}
+          />
+        ));
+      })}
+    </InfiniteScroll>
+  );
 }
